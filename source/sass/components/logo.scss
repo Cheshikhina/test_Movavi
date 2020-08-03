@@ -1,0 +1,32 @@
+.logo {
+  position: relative;
+  margin-left: 4%;
+  color: currentColor;
+  transition: color $duration_03;
+
+  &::before {
+    @include before;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 10;
+  }
+
+  &:active {
+    opacity: $opacity;
+  }
+
+  svg {
+    fill: currentColor;
+    position: relative;
+  }
+}
+
+@media (min-width: $no_mobile) {
+
+  .logo:hover,
+  .logo:focus {
+    color: $btn;
+  }
+}

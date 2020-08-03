@@ -1,0 +1,63 @@
+// sizes
+$mobile_min: 320px;
+$mobile_max: 720px;
+$tablet_extra: 960px;
+$desktop_max: 1274px;
+$tablet_max: 1188px;
+$no_mobile: 721px;
+$header_height: 68px;
+
+// color scheme
+$white: #ffffff;
+$black: #000000;
+$dark: #212121;
+$gray: #757575;
+$bacground_deep: #e3f0ff;
+$bacground_light: #f2f8ff;
+$accent: #ef5350;
+$btn: #3581d5;
+$btn_form: #1962b2;
+$line: #bdbdbd;
+$line_price: #171717;
+$input_background: #616161;
+$overlay: rgba($dark, 0.2);
+$text_dark: rgba($dark, 0.502);
+$text_dark_78: rgba($dark, 0.78);
+$text_light_74: rgba($white, 0.749);
+
+
+// fonts size
+$main_font: 16;
+
+$fs_12: 12;
+$fs_14: 14;
+$fs_16: 16;
+$fs_20: 20;
+$fs_24: 24;
+$fs_28: 28;
+$fs_32: 32;
+$fs_44: 44;
+
+$lh_12: 1.2;
+$lh_14: 1.417;
+$lh_15: 1.5;
+
+// another
+$transition: all 0.3s;
+$duration_03: 0.3s;
+$duration_07: 0.7s;
+$opacity: 0.87;
+
+$br_03: 3px;
+$br_04: 4px;
+$br_06: 6px;
+
+$placeholders_dots: "-moz-placeholder",
+"-webkit-input-placeholder",
+"placeholder";
+$placeholders_dot: "-moz-placeholder",
+"-ms-input-placeholder";
+
+// retina
+$retina_dpi: 144dpi;
+$retina_dppx: 1.5dppx;

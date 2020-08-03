@@ -1,0 +1,32 @@
+@charset "utf-8";
+@import "normalize";
+
+// abstracts
+@import "./abstracts/variables";
+@import "./abstracts/mixin";
+@import "./abstracts/visually_hidden";
+
+// libs for plugins
+
+// general
+@import "./general/fonts";
+@import "./general/scaffolding";
+
+// components
+@import "./components/wrapper";
+@import "./components/container";
+@import "./components/button";
+@import "./components/image";
+@import "./components/line";
+@import "./components/product";
+@import "./components/advantage";
+@import "./components/logo";
+@import "./components/modal";
+@import "./components/modal_card";
+
+// blocks
+@import "./blocks/header";
+@import "./blocks/footer";
+@import "./blocks/products";
+@import "./blocks/advantages";
+@import "./blocks/offer";

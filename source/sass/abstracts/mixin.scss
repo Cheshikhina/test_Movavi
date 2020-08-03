@@ -1,0 +1,112 @@
+@function rem($size) {
+  @return $size/$main_font*1rem;
+}
+
+@mixin font($size, $line_height) {
+  font-size: rem($size);
+  line-height: $line_height;
+}
+
+@mixin visually_hidden {
+  position: absolute;
+  width: 1px;
+  min-width: initial;
+  height: 1px;
+  min-height: initial;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+@mixin list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+@mixin button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+@mixin background($name, $type, $background_color, $number:false) {
+  @if $background_color !='false' {
+    background-color: $background_color;
+  }
+
+  @if $number {
+    background-repeat: no-repeat;
+    background-image: url("../img/#{$name}_#{$number}@1x.#{$type}");
+    background-image: url("../img/#{$name}_#{$number}@1x.webp");
+    background-size: cover;
+    background-position: center;
+
+    @media (min-resolution: $retina_dpi),
+    (min-resolution: $retina_dppx) {
+      background-image: url("../img/#{$name}_#{$number}@2x.#{$type}");
+      background-image: url("../img/#{$name}_#{$number}@2x.webp");
+    }
+
+    @supports (((-webkit-appearance:none) and (stroke-color:transparent)) or ((overflow:-webkit-marquee) and (-webkit-text-size-adjust:none) and (justify-content:inherit))) {
+      background-image: image-set(url("../img/#{$name}_#{$number}@1x.#{$type}") 1x);
+
+      @media (min-resolution: $retina_dpi),
+      (min-resolution: $retina_dppx) {
+        background-image: image-set(url("../img/#{$name}_#{$number}@2x.#{$type}") 2x);
+      }
+    }
+  }
+
+  @else {
+    background-repeat: no-repeat;
+    background-image: url("../img/#{$name}@1x.#{$type}");
+    background-image: url("../img/#{$name}@1x.webp");
+    background-size: cover;
+    background-position: center;
+
+    @media (min-resolution: $retina_dpi),
+    (min-resolution: $retina_dppx) {
+      background-image: url("../img/#{$name}@2x.#{$type}");
+      background-image: url("../img/#{$name}@2x.webp");
+    }
+
+    @supports (((-webkit-appearance:none) and (stroke-color:transparent)) or ((overflow:-webkit-marquee) and (-webkit-text-size-adjust:none) and (justify-content:inherit))) {
+      background-image: image-set(url("../img/#{$name}@1x.#{$type}") 1x);
+
+      @media (min-resolution: $retina_dpi),
+      (min-resolution: $retina_dppx) {
+        background-image: image-set(url("../img/#{$name}@2x.#{$type}") 2x);
+      }
+    }
+  }
+}
+
+@mixin container ($max_width, $padding: 0) {
+  width: 100%;
+  max-width: $max_width*1px + $padding*2px;
+  margin: 0 auto;
+  padding: 0 $padding*1px;
+}
+
+@mixin flex_center($isJustifyContent: 0) {
+  display: flex;
+  align-items: center;
+
+  @if ($isJustifyContent==1) {
+    justify-content: center;
+  }
+}
+
+@mixin before {
+  position: absolute;
+  content: "";
+  display: flex;
+}

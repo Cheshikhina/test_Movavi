@@ -1,0 +1,52 @@
+.advantage {
+  position: relative;
+
+  &::before {
+    @include before;
+    width: 55px;
+    height: 38px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+}
+
+.advantage__title {
+  @include font($fs_16, $lh_12);
+  margin: 0;
+  padding-left: 50px;
+  padding-bottom: 10px;
+  padding-top: 8px;
+  font-weight: 700;
+}
+
+.advantage__text {
+  @include font($fs_16, $lh_15);
+  margin: 0;
+}
+
+.advantage--back_money::before {
+  background-image: url("../img/money__desktop@1x.png");
+}
+
+.advantage--secure::before {
+  background-image: url("../img/secure__desktop@1x.png");
+}
+
+.advantage--activation::before {
+  background-image: url("../img/key__desktop@1x.png");
+}
+
+.advantage--payment::before {
+  background-image: url("../img/payment__desktop@1x.png");
+}
+
+.advantage--support::before {
+  background-image: url("../img/support__desktop@1x.png");
+}
+
+@media (max-width: $tablet_max) {
+  .advantage__title {
+    min-height: 43px;
+    padding-bottom: 0;
+  }
+}

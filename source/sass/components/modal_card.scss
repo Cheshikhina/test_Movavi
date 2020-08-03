@@ -1,0 +1,114 @@
+.modal_card {
+  @include font($fs_16, $lh_12);
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 80px;
+  width: 100%;
+  color: $black;
+  transition: all 0.3s;
+
+  &+.modal_card {
+    margin-top: 30px;
+  }
+}
+
+.modal_card_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 134px;
+  max-height: 75px;
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.modal_card__link {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-left: 134px;
+  color: $black;
+  transition: color $duration_03;
+
+  &:active {
+    opacity: $opacity;
+  }
+}
+
+.modal_card__title {
+  @include font($fs_16, $lh_12);
+  width: 70%;
+  margin: 0;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.modal_card__price {
+  display: flex;
+  justify-content: flex-end;
+  width: 30%;
+  font-weight: 700;
+  color: $black;
+}
+
+.modal_card__delete {
+  @include flex_center;
+  @include button;
+  @include font($fs_14, $lh_12);
+  margin-left: auto;
+  padding: 0 5px;
+  color: $text_dark;
+  transition: color $duration_03;
+
+  &:active {
+    opacity: $opacity;
+  }
+}
+
+  @media screen and (-ms-high-contrast: active),
+  (-ms-high-contrast: none) {
+    .modal_card__link {
+      min-height: 50px;
+    }
+  }
+
+@media (max-width: $mobile_max) {
+  .modal_card_img {
+    max-width: 110px;
+  }
+
+  .modal_card__link {
+    padding-left: 110px;
+  }
+
+  .modal_card__title {
+    width: 48%;
+  }
+
+  .modal_card__price {
+    width: 52%;
+  }
+
+}
+
+@media (min-width: $no_mobile) {
+
+  .modal_card__link:hover,
+  .modal_card__link:focus {
+    color: $btn;
+  }
+
+  .modal_card__delete:hover,
+  .modal_card__delete:focus {
+    color: rgba($btn, $opacity);
+  }
+}

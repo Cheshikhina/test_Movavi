@@ -1,0 +1,21 @@
+.line {
+  position: relative;
+
+  &::after {
+    @include before;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    width: 100%;
+    background-color: $line;
+  }
+}
+
+
+@media (max-width: $mobile_max) {
+  .line::after {
+    max-width: 90%;
+  }
+}

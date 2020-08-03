@@ -1,0 +1,54 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  min-width: $mobile_min;
+  margin: 0;
+  font-weight: 400;
+  font-size: $main_font*1px;
+  font-family: "OpenSans", "Arial", sans-serif;
+  word-wrap: normal;
+  color: $black;
+  background-color: $bacground_light;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.body_hidden {
+  overflow-y: hidden;
+  position: fixed;
+  width: 100%;
+}

@@ -1,0 +1,191 @@
+.footer {
+  @include flex_center;
+  flex: 0 0 auto;
+  background-color: $dark;
+  color: $white;
+  padding: 44px 0 32px;
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  color: $white;
+  align-items: flex-start;
+}
+
+.footer__form {
+  @include font($fs_16, $lh_15);
+  max-width: 538px;
+  width: 100%;
+  margin-left: 32px;
+  margin-right: 5%;
+}
+
+[for="footer_mail"] {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.footer__form_box {
+  @include flex_center;
+  position: relative;
+  width: 100%;
+  height: 42px;
+  margin-bottom: 14px;
+  border-radius: $br_04;
+  overflow: hidden;
+
+  input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px 106px+16px 10px 16px;
+    color: $white;
+    background-color: $input_background;
+    -webkit-appearance: none;
+    border-radius: 0;
+    outline: 0;
+    resize: none;
+    border: 1px solid transparent;
+    transition: border $duration_03;
+    cursor: pointer;
+
+    @each $placeholder in $placeholders_dots {
+      &::#{$placeholder} {
+        color: $text_light_74;
+        transition: opacity $duration_03, color $duration_03;
+      }
+    }
+
+    @each $placeholder in $placeholders_dot {
+      &:#{$placeholder} {
+        color: $text_light_74 !important;
+        transition: opacity $duration_03, color $duration_03;
+      }
+    }
+
+    &:focus {
+      border: 1px solid $btn;
+      cursor: text;
+
+      @each $placeholder in $placeholders_dots {
+        &::#{$placeholder} {
+          opacity: 0;
+          color: transparent;
+        }
+      }
+
+      @each $placeholder in $placeholders_dot {
+        &:#{$placeholder} {
+          opacity: 0;
+          color: transparent !important;
+        }
+      }
+    }
+  }
+
+  button {
+    @include button;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 106px;
+    z-index: 10;
+    color: $text_light_74;
+    background-color: $btn_form;
+    transition: background-color $duration_03;
+
+    &:active {
+      opacity: $opacity;
+    }
+  }
+}
+
+.footer__form_personal {
+  position: relative;
+  padding-left: 32px;
+
+  label {
+    @include font($fs_12, $lh_12);
+
+    a {
+      color: $btn_form;
+      transition: color $duration_03;
+
+      &:active {
+        opacity: $opacity;
+      }
+    }
+
+    &::before {
+      @include before;
+      position: absolute;
+      top: 7px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      border: 1px solid $input_background;
+      border-radius: $br_03;
+      transition: background-color $duration_03, border $duration_03;
+      cursor: pointer;
+    }
+  }
+
+  input {
+    @include visually_hidden;
+
+    &:focus+label::before {
+      border: 1px solid $btn;
+    }
+
+    &:checked+label::before {
+      border: 1px solid $btn;
+      background-color: $btn;
+    }
+  }
+}
+
+@media (max-width: $tablet_max) {
+  .footer__form {
+    max-width: 447px;
+    margin-right: 4%;
+  }
+}
+
+@media (max-width: $tablet_extra) {
+  .footer {
+    padding-top: 48px;
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    max-width: 705px;
+  }
+
+  .footer__form {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .footer__logo {
+    margin-left: 0;
+    margin-bottom: 24px;
+  }
+}
+
+@media (min-width: $no_mobile) {
+
+  .footer__form_box button:hover,
+  .footer__form_box button:focus {
+    background-color: $btn;
+  }
+
+  .footer__form_personal label a:hover,
+  .footer__form_personal label a:focus {
+    color: $btn;
+  }
+}

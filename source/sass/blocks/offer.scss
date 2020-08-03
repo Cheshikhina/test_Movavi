@@ -1,0 +1,114 @@
+.offer {
+  position: fixed;
+  top: 50vh;
+  min-width: 140px;
+  transform: translate(-45px, -50%);
+  z-index: 100;
+  transition: transform $duration_03;
+}
+
+.offer__inner {
+  @include font($fs_14, $lh_12);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 5px;
+  background-color: $white;
+  border: 1px solid $accent;
+  border-radius: $br_04;
+  font-weight: 700;
+}
+
+.offer__text {
+  @include flex_center(1);
+  @include button;
+  @include font($fs_14, $lh_12);
+  position: relative;
+  padding-top: 25px;
+  margin: 0 0 0 auto;
+  font-weight: 700;
+  z-index: 10;
+
+  &::before {
+    @include before;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url(../img/alarm__desktop@1x.png);
+  }
+}
+
+.offer__timer {
+  position: absolute;
+  bottom: 5px;
+  padding: 0 5px;
+  opacity: 0;
+  z-index: 0;
+}
+
+.offer--open {
+  transform: translateY(-50%);
+
+  .offer__text {
+    margin: 0 auto 0 0;
+    padding-right: 50px;
+
+    &::before {
+      right: 50px;
+    }
+  }
+
+  .offer__timer {
+    right: 0;
+    z-index: 0;
+    opacity: 1;
+    transition: opacity $duration_03;
+  }
+}
+
+.offer--close {
+  transform: translate(-100%, -50%);
+  transition: transform $duration_07;
+}
+
+@media (max-width: $tablet_extra) {
+  .offer {
+    min-width: 88px;
+    transform: translate(-58px, -50%);
+  }
+
+  .offer__text {
+    width: 20px;
+    height: 20px;
+    padding-left: 16px;
+    padding-top: 20px;
+
+    span {
+      @include visually_hidden;
+    }
+  }
+
+  .offer__timer {
+    top: 50%;
+    bottom: 0;
+    transform: translateY(-50%);
+  }
+
+  .offer--open {
+    transform: translateY(-50%);
+
+    .offer__text {
+      margin: 0 auto 0 0;
+      padding-right: 16px;
+
+      &::before {
+        right: 50px;
+      }
+    }
+  }
+}
